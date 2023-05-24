@@ -3,7 +3,6 @@ const firstImg = document.querySelector(".firstimg");
 const firstImg2 = document.querySelector(".firstimg2");
 const zoom = document.querySelectorAll(".zoom");
 const containerZoom = document.querySelector(".container-zoom");
-// const flou = document.querySelector(".flou");
 
 for (let i = 0; i < imgs.length; i++) {
   let img = imgs[i];
@@ -60,17 +59,15 @@ function displayImg(img) {
   });
 }
 
-firstImg.addEventListener("click", () => {
-  containerZoom.style.display = "block";
 
+
+firstImg.addEventListener('click', function(event) {
+  if (event.target.matches('#fistImg')) {
+    containerZoom.style.display = "block";
+  }
 });
-
 containerZoom.addEventListener('click', function(event) {
   if (!event.target.matches('.image-4, .image-5, .image-6, .image-7, #fistImg')) {
     containerZoom.style.display = "none";
   }
 });
-
-// document.body.addEventListener("click", () => {
-//     containerZoom.style.display = "none";
-//   });
