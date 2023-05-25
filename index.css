@@ -102,18 +102,144 @@ body {
     margin-right: 35px;
 }
 
-.navbar .setting img {
+.navbar .setting .userAvatar {
     width: 45px;
     border: 2px solid rgba(255, 166, 0, 0);
 
 }
 
-.navbar .setting img:hover {
+.navbar .setting .userAvatar:hover {
     border: 2px solid orange;
     cursor: pointer;
     border-radius: 50%;
 }
 
+/* howMAny */
+
+.svg {
+    position: relative;
+}
+
+.howMany {
+    width: 17px;
+    height: 13px;
+    position: absolute;
+    left: 10%;
+    top: -20%;
+    font-size: 0.6rem;
+    background-color: orange;
+    border-radius: 100%;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    margin-left: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.141);
+    opacity: 0;
+}
+
+/* SETTING NAVBRA SHOOPING */
+
+.shop {
+    display: none;
+    position: absolute;
+    width: 25%;
+    height: 30%;
+    background-color: white;
+    top: 75px;
+    border-radius: 10px;
+    box-shadow: 0px 19px 25px rgba(0, 0, 0, 0.09);
+    z-index: 9;
+}
+
+.shop h3 {
+    padding: 25px;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.449);
+}
+
+.shop p {
+    color: gray;
+    position: relative;
+    text-align: center;
+    top: 25%;
+    font-weight: 900;
+}
+
+.shopReveal {
+    display: grid;
+    grid-template-rows: 30% 40% 30%;
+    position: absolute;
+    width: 25%;
+    height: 30%;
+    background-color: white;
+    top: 75px;
+    border-radius: 10px;
+    box-shadow: 0px 19px 25px rgba(0, 0, 0, 0.09);
+    z-index: 9;
+}
+
+.shopReveal h3 {
+    padding: 25px 20px;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.449);
+}
+
+.shopReveal p {
+    color: gray;
+    position: relative;
+    text-align: center;
+    top: 70%;
+    font-weight: 900;
+}
+
+/* shop reveal + achat */
+
+.achat {
+    position: relative;
+    display: grid;
+    grid-template-columns: 20% 70% 10%;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+
+}
+
+.achat img {
+    position: relative;
+    width: 70%;
+    left: 100%;
+    transform: translateX(-100%);
+}
+
+.achat h4 {
+    font-weight: 400;
+    font-size: 0.95rem;
+    padding: 0 0 0 10px;
+    line-height: 22px;
+}
+
+.achat svg {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.achat .shop-price {
+    color: black;
+    font-weight: 700;
+}
+
+.btnCheckOut {
+    position: relative;
+    width: 90%;
+    margin: 0px auto 30px auto;
+    border-radius: 15px;
+    border: none;
+    background-color: orange;
+    color: white;
+    font-weight: 700;
+}
 
 /* container */
 
@@ -175,7 +301,26 @@ body>div.container>div.imgs>div.firstimg {
     left: 50%;
     top: 0%;
     transform: translateX(-50%);
+}
 
+.firstimg2 {
+    position: relative;
+}
+
+.nextPlus {
+    position: absolute;
+    display: grid;
+    width: 65%;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    align-items: center;
+    left: 66%;
+    top: 50%;
+    transform: translateX(-50%);
+}
+
+.nextPlus .prev {
+    position: relative;
 }
 
 .flou {
@@ -215,11 +360,10 @@ body>div.container>div.imgs>div.firstimg {
     position: relative;
     left: 50%;
     transform: translate(-50%);
-    margin-top: 7%;
+    margin-top: 10%;
     padding: 25px;
     max-width: 550px;
 }
-
 
 .infos .marque {
     color: orange;
@@ -294,6 +438,7 @@ body>div.container>div.imgs>div.firstimg {
 
 .infos .addAndChoice .more-less .orange {
     color: orange;
+    cursor: pointer;
 }
 
 /* BUTTON */
