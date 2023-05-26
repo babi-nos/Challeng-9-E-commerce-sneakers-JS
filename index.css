@@ -1,39 +1,80 @@
 @media only screen and (max-width: 1100px) {
     .infos {
-        /* max-width: 350px !important; */
         margin-top: 5% !important;
     }
-
     .infos h1 {
         font-size: 1.9rem !important;
         padding: 5px 0 15px 0 !important;
-
     }
-
     .infos p {
         font-size: 0.8rem;
     }
-
     .infos .price {
         grid-template-columns: 35% 50% !important;
         padding: 25px 0 !important;
     }
-
     .infos .price .pourcentage {
-        background: rgba(255, 166, 0, 0.193);
-        padding: 2px 5px;
-        left: 0px;
         width: 20% !important;
-        color: orange;
-        border-radius: 5px;
-        font-weight: 900;
-        font-size: 0.8rem;
+    }
+    .nextPlus .prev-btn {
+        margin: 0px 5% 0 0 !important;
     }
 }
 
+@media only screen and (max-width: 875px) {
+
+    body {
+        padding: 0 5px !important;
+    }
+    .navbar .liste {
+        display: none !important;
+    }
+    #side-bar {
+        display: block !important;
+    }
+    .container {
+        display: block !important;
+    }
+    .imgs .firstimg img {
+        pointer-events: none !important;
+    }
+    .imgs {
+        margin: 5px auto 0px auto !important;
+    }
+    .shopReveal {
+        width: 96% !important;
+        height: 40% !important;
+        top: 135px !important;
+        box-shadow: 0px 19px 250px rgb(0, 0, 0) !important;
+        margin-right: 1% ;
+
+    }
+    .infos {
+        margin-top: 0% !important;
+        max-width: 1200px !important;
+    }
+
+    .infos .addAndChoice {
+        grid-template-columns: 30% 70% !important;
+    }
+}
+
+@media only screen and (max-width: 655px) {
+    .toggle-btn span {
+        width: 40px !important;
+    }
+    .infos .price {
+        grid-template-columns: 50% 50% !important;
+        padding: 25px 0 !important;
+    }
+    .imgs .firstimg img {
+        width: 70% !important;
+    }
+    .imgs .img-bottom {
+        width: 70% !important;
+    }
+}
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;700&display=swap');
-
-
 
 * {
     margin: 0;
@@ -48,24 +89,26 @@ body {
     margin: auto;
     font-family: 'Poppins', sans-serif;
     padding: 0 50px;
-}
 
+}
 
 .navbar {
     display: grid;
-    grid-template-columns: 15% 50% 35%;
+    grid-template-columns: 15% 55% 30%;
     align-items: center;
     height: 100px;
     border-bottom: 1px rgba(128, 128, 128, 0.495) solid;
     flex-wrap: wrap;
+    user-select: none;
 }
 
-.navbar ul {
+.navbar .liste {
     display: flex;
     text-align: left;
+    padding-left: 20px;
 }
 
-.navbar ul li {
+.navbar ul.liste li {
     padding: 0px 20px;
     margin-top: 4px;
     font-size: 1rem;
@@ -75,7 +118,7 @@ body {
     cursor: pointer;
 }
 
-.navbar ul li::before {
+.navbar ul.liste li::before {
     content: "";
     position: absolute;
     bottom: -35px;
@@ -87,9 +130,9 @@ body {
 
 }
 
-.navbar ul li:hover::before {
+.navbar ul.liste li:hover::before {
     transition: 0.5s width;
-    width: 65%;
+    width: 60%;
 }
 
 .navbar .setting {
@@ -105,13 +148,15 @@ body {
 .navbar .setting .userAvatar {
     width: 45px;
     border: 2px solid rgba(255, 166, 0, 0);
-
 }
 
 .navbar .setting .userAvatar:hover {
     border: 2px solid orange;
     cursor: pointer;
     border-radius: 50%;
+}
+.navbar .setting .svgShop{
+    cursor: pointer;
 }
 
 /* howMAny */
@@ -176,6 +221,8 @@ body {
     border-radius: 10px;
     box-shadow: 0px 19px 25px rgba(0, 0, 0, 0.09);
     z-index: 9;
+    user-select: none;
+
 }
 
 .shopReveal h3 {
@@ -241,6 +288,87 @@ body {
     font-weight: 700;
 }
 
+/* NAvbar responsive */
+
+#side-bar {
+    display: none;
+    position: relative;
+    width: 230px;
+    /* height: 100vh; */
+    background: #09fbba;
+    top: 0;
+    left: -230px;
+    transition: 0.5s ease-out;
+    z-index: 4;
+    font-weight: 900;
+}
+
+.ulListe {
+    position: absolute;
+    width: 230px;
+    margin: -50px -10px;
+    height: 100vh;
+    background: #ffffff;
+}
+
+.toggle-btn {
+    position: absolute;
+    top: 30px;
+    left: 240px;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+}
+
+.toggle-btn span {
+    display: block;
+    width: 60px;
+    height: 7px;
+    border-radius: 7px;
+    background: #686868;
+    margin-top: 6px;
+    transition: 0.3s ease;
+    /* transform: rotate(60deg); */
+}
+
+.ulListe ul li {
+    padding: 40px 55px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.ulListe ul li:hover {
+    color: orange;
+}
+
+/*sidebar Effect Js*/
+
+#side-bar.clicked span:nth-child(1) {
+    background: #00000000;
+}
+
+#side-bar.clicked span:nth-child(2) {
+    position: absolute;
+    background: #686868;
+
+    transform: rotate(-50deg);
+}
+
+#side-bar.clicked span:nth-child(3) {
+    position: absolute;
+    background: #686868;
+
+    transform: rotate(50deg);
+}
+
+#side-bar.clicked {
+    left: 0;
+}
+
+.container.clicked {
+    opacity: 0.3;
+}
+
 /* container */
 
 .container {
@@ -257,9 +385,10 @@ body {
 }
 
 .imgs .firstimg img {
-    width: 55%;
+    width: 60%;
     border-radius: 15px;
     cursor: pointer;
+    user-select: none;
 }
 
 body>div.container>div.imgs>div.firstimg {
@@ -301,6 +430,8 @@ body>div.container>div.imgs>div.firstimg {
     left: 50%;
     top: 0%;
     transform: translateX(-50%);
+    user-select: none;
+
 }
 
 .firstimg2 {
@@ -309,18 +440,38 @@ body>div.container>div.imgs>div.firstimg {
 
 .nextPlus {
     position: absolute;
-    display: grid;
-    width: 65%;
-    grid-template-columns: 50% 50%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    left: 66%;
-    top: 50%;
-    transform: translateX(-50%);
+    width: 100%;
+    top: 35%;
+
 }
 
-.nextPlus .prev {
+.nextPlus .prev-btn {
     position: relative;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.199);
+    margin: 0px 15% 0 0;
+    cursor: pointer;
+}
+
+.nextPlus .next-btn {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.199);
+    margin: 0px 0 0 275px;
+    cursor: pointer;
+}
+
+#bold {
+    font-weight: 700;
+    font-size: 1.6rem;
+    border-radius: 100%;
 }
 
 .flou {
@@ -363,6 +514,7 @@ body>div.container>div.imgs>div.firstimg {
     margin-top: 10%;
     padding: 25px;
     max-width: 550px;
+    width: 100%;
 }
 
 .infos .marque {
@@ -420,6 +572,7 @@ body>div.container>div.imgs>div.firstimg {
     display: grid;
     grid-template-columns: 30% 65%;
     align-items: center;
+    user-select: none;
 }
 
 .infos .addAndChoice .more-less {

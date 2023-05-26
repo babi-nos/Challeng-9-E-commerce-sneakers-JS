@@ -13,15 +13,24 @@ const add = document.querySelector(".btnShop");
 const panier = document.querySelector(".howMany");
 const achat = document.querySelector(".achat");
 const hideIfAchat = document.querySelector(".hideIfAchat");
+const prevBtn = document.querySelector(".prev-btn");
+const nextBtn = document.querySelector(".next-btn");
+const imgChange = document.querySelector(".img-change");
+const btn = document.getElementById("btn");
+const sidebar = document.getElementById("side-bar");
+const svgShop = document.querySelector(".svgShop");
+let slideCurrent = 0;
 
 for (let i = 0; i < imgs.length; i++) {
   let img = imgs[i];
   img.classList.add(`image-${i}`);
-  displayImg(img);
+  displayImg(img, i);
 }
 
-function displayImg(img) {
+function displayImg(img, slideIndex) {
   img.addEventListener("click", () => {
+    slideCurrent = slideIndex;
+
     imgs.forEach((activeimg) => {
       activeimg.classList.remove("active");
     });
@@ -36,12 +45,8 @@ function displayImg(img) {
         targetImg.classList.add("active");
       });
 
-      firstImg.innerHTML = `
-        <img id="fistImg" class="zoom" src="/images/image-product-1.jpg" alt="">
-      `;
-      firstImg2.innerHTML = `
-        <img id="fistImg" src="/images/image-product-1.jpg" alt="">
-      `;
+      firstImg.innerHTML = `<img id="fistImg" class="zoom" src="/images/image-product-1.jpg" alt="">`;
+      imgChange.innerHTML = `<img id="fistImg" src="/images/image-product-1.jpg" alt="">`;
     } else if (
       img.classList.contains("image-1") ||
       img.classList.contains("image-5")
@@ -51,12 +56,8 @@ function displayImg(img) {
       targetImgs.forEach((targetImg) => {
         targetImg.classList.add("active");
       });
-      firstImg.innerHTML = `
-          <img id="fistImg"  class="zoom" src="/images/image-product-2.jpg" alt="">
-          `;
-      firstImg2.innerHTML = `
-          <img id="fistImg" src="/images/image-product-2.jpg" alt="">
-          `;
+      firstImg.innerHTML = `<img id="fistImg"  class="zoom" src="/images/image-product-2.jpg" alt="">`;
+      imgChange.innerHTML = `<img id="fistImg" src="/images/image-product-2.jpg" alt="">`;
     } else if (
       img.classList.contains("image-2") ||
       img.classList.contains("image-6")
@@ -66,12 +67,8 @@ function displayImg(img) {
       targetImgs.forEach((targetImg) => {
         targetImg.classList.add("active");
       });
-      firstImg.innerHTML = `
-          <img id="fistImg"  class="zoom" src="/images/image-product-3.jpg" alt="">
-          `;
-      firstImg2.innerHTML = `
-          <img id="fistImg" src="/images/image-product-3.jpg" alt="">
-          `;
+      firstImg.innerHTML = `<img id="fistImg"  class="zoom" src="/images/image-product-3.jpg" alt="">`;
+      imgChange.innerHTML = ` <img id="fistImg" src="/images/image-product-3.jpg" alt="">`;
     } else if (
       img.classList.contains("image-3") ||
       img.classList.contains("image-7")
@@ -81,15 +78,61 @@ function displayImg(img) {
       targetImgs.forEach((targetImg) => {
         targetImg.classList.add("active");
       });
-      firstImg.innerHTML = `
-          <img id="fistImg"  class="zoom" src="/images/image-product-4.jpg" alt="">
-          `;
-      firstImg2.innerHTML = `
-          <img id="fistImg" src="/images/image-product-4.jpg" alt="">
-          `;
+      firstImg.innerHTML = `<img id="fistImg"  class="zoom" src="/images/image-product-4.jpg" alt="">`;
+      imgChange.innerHTML = `<img id="fistImg" src="/images/image-product-4.jpg" alt="">`;
     }
+    showSlide(slideCurrent);
   });
 }
+
+// CAROUSEL
+
+function showSlide(i) {
+  imgs.forEach((img) => {
+    img.classList.remove("active");
+  });
+
+  if (slideCurrent < 0 || i < 0) {
+    slideCurrent = imgs.length - 1;
+  } else if (slideCurrent >= imgs.length || i >= imgs.length) {
+    slideCurrent = 0;
+  }
+
+  if (slideCurrent === 0 || slideCurrent === 4 || i === 0 || i === 4) {
+    imgs[0].classList.add("active");
+    imgs[4].classList.add("active");
+    firstImg.innerHTML = `<img id="fistImg" src="/images/image-product-1.jpg" alt=""></img>`;
+    imgChange.innerHTML = `<img id="fistImg" src="/images/image-product-1.jpg" alt=""></img>`;
+  } else if (slideCurrent === 1 || slideCurrent === 5 || i === 1 || i === 5) {
+    imgs[1].classList.add("active");
+    imgs[5].classList.add("active");
+    firstImg.innerHTML = `<img id="fistImg" src="/images/image-product-2.jpg" alt=""></img>`;
+    imgChange.innerHTML = `<img id="fistImg" src="/images/image-product-2.jpg" alt=""></img>`;
+  } else if (slideCurrent === 2 || slideCurrent === 6 || i === 2 || i === 5) {
+    imgs[2].classList.add("active");
+    imgs[6].classList.add("active");
+    firstImg.innerHTML = `<img id="fistImg" src="/images/image-product-3.jpg" alt=""></img>`;
+    imgChange.innerHTML = `<img id="fistImg" src="/images/image-product-3.jpg" alt=""></img>`;
+  } else if (slideCurrent === 3 || slideCurrent === 7 || i === 3 || i === 6) {
+    imgs[3].classList.add("active");
+    imgs[7].classList.add("active");
+    firstImg.innerHTML = `<img id="fistImg" src="/images/image-product-4.jpg" alt=""></img>`;
+    imgChange.innerHTML = `<img id="fistImg" src="/images/image-product-4.jpg" alt=""></img>`;
+  }
+}
+
+function nextSlide() {
+  slideCurrent++;
+  showSlide();
+}
+
+function prevSlide() {
+  slideCurrent--;
+  showSlide();
+}
+
+nextBtn.addEventListener("click", nextSlide);
+prevBtn.addEventListener("click", prevSlide);
 
 // caculer le painer et l'incrementé
 
@@ -155,6 +198,18 @@ function addShop() {
   }
 }
 
+function revealShop() {
+  shop.classList.toggle("shop");
+  shop.classList.toggle("shopReveal");
+
+  if (shop.classList.contains("shopReveal")) {
+    container.addEventListener("click", () => {
+      shop.classList.remove("shopReveal");
+      shop.classList.add("shop");
+    });
+  }
+}
+
 add.addEventListener("click", () => {
   addShop();
 });
@@ -176,22 +231,23 @@ firstImg.addEventListener("click", function (event) {
 });
 containerZoom.addEventListener("click", function (event) {
   if (
-    !event.target.matches(".image-4, .image-5, .image-6, .image-7, #fistImg")
+    !event.target.matches(
+      ".image-4, .image-5, .image-6, .image-7, #fistImg, .prev-btn, .next-btn, path , #bold"
+    )
   ) {
     containerZoom.style.display = "none";
   }
 });
 
-user.addEventListener("click", () => {
-  shop.classList.toggle("shop");
-  shop.classList.toggle("shopReveal");
+user.addEventListener("click", revealShop);
+svgShop.addEventListener("click", revealShop);
 
-  if (shop.classList.contains("shopReveal")) {
-    container.addEventListener("click", () => {
-      shop.classList.remove("shopReveal");
-      shop.classList.add("shop");
-    });
-  }
+btn.addEventListener("click", () => {
+  sidebar.classList.toggle("clicked");
+  container.classList.toggle("clicked");
 });
 
-
+container.addEventListener("click", () => {
+  sidebar.classList.remove("clicked");
+  container.classList.remove("clicked");
+});
