@@ -45,8 +45,8 @@ function displayImg(img, slideIndex) {
         targetImg.classList.add("active");
       });
 
-      firstImg.innerHTML = `<img id="fistImg" class="zoom" src="/images/image-product-1.jpg" alt="">`;
-      imgChange.innerHTML = `<img id="fistImg" src="/images/image-product-1.jpg" alt="">`;
+      firstImg.innerHTML = `<img id="fistImg" class="zoom" src="/mages/image-product-1.jpg" alt="">`;
+      imgChange.innerHTML = `<img id="fistImg" src="images/image-product-1.jpg" alt="">`;
     } else if (
       img.classList.contains("image-1") ||
       img.classList.contains("image-5")
@@ -56,8 +56,8 @@ function displayImg(img, slideIndex) {
       targetImgs.forEach((targetImg) => {
         targetImg.classList.add("active");
       });
-      firstImg.innerHTML = `<img id="fistImg"  class="zoom" src="/images/image-product-2.jpg" alt="">`;
-      imgChange.innerHTML = `<img id="fistImg" src="/images/image-product-2.jpg" alt="">`;
+      firstImg.innerHTML = `<img id="fistImg"  class="zoom" src="images/image-product-2.jpg" alt="">`;
+      imgChange.innerHTML = `<img id="fistImg" src="images/image-product-2.jpg" alt="">`;
     } else if (
       img.classList.contains("image-2") ||
       img.classList.contains("image-6")
@@ -67,8 +67,8 @@ function displayImg(img, slideIndex) {
       targetImgs.forEach((targetImg) => {
         targetImg.classList.add("active");
       });
-      firstImg.innerHTML = `<img id="fistImg"  class="zoom" src="/images/image-product-3.jpg" alt="">`;
-      imgChange.innerHTML = ` <img id="fistImg" src="/images/image-product-3.jpg" alt="">`;
+      firstImg.innerHTML = `<img id="fistImg"  class="zoom" src="images/image-product-3.jpg" alt="">`;
+      imgChange.innerHTML = ` <img id="fistImg" src="images/image-product-3.jpg" alt="">`;
     } else if (
       img.classList.contains("image-3") ||
       img.classList.contains("image-7")
@@ -78,8 +78,8 @@ function displayImg(img, slideIndex) {
       targetImgs.forEach((targetImg) => {
         targetImg.classList.add("active");
       });
-      firstImg.innerHTML = `<img id="fistImg"  class="zoom" src="/images/image-product-4.jpg" alt="">`;
-      imgChange.innerHTML = `<img id="fistImg" src="/images/image-product-4.jpg" alt="">`;
+      firstImg.innerHTML = `<img id="fistImg"  class="zoom" src="images/image-product-4.jpg" alt="">`;
+      imgChange.innerHTML = `<img id="fistImg" src="images/image-product-4.jpg" alt="">`;
     }
     showSlide(slideCurrent);
   });
@@ -101,23 +101,23 @@ function showSlide(i) {
   if (slideCurrent === 0 || slideCurrent === 4 || i === 0 || i === 4) {
     imgs[0].classList.add("active");
     imgs[4].classList.add("active");
-    firstImg.innerHTML = `<img id="fistImg" src="/images/image-product-1.jpg" alt=""></img>`;
-    imgChange.innerHTML = `<img id="fistImg" src="/images/image-product-1.jpg" alt=""></img>`;
+    firstImg.innerHTML = `<img id="fistImg" src="images/image-product-1.jpg" alt=""></img>`;
+    imgChange.innerHTML = `<img id="fistImg" src="images/image-product-1.jpg" alt=""></img>`;
   } else if (slideCurrent === 1 || slideCurrent === 5 || i === 1 || i === 5) {
     imgs[1].classList.add("active");
     imgs[5].classList.add("active");
-    firstImg.innerHTML = `<img id="fistImg" src="/images/image-product-2.jpg" alt=""></img>`;
-    imgChange.innerHTML = `<img id="fistImg" src="/images/image-product-2.jpg" alt=""></img>`;
+    firstImg.innerHTML = `<img id="fistImg" src="images/image-product-2.jpg" alt=""></img>`;
+    imgChange.innerHTML = `<img id="fistImg" src="images/image-product-2.jpg" alt=""></img>`;
   } else if (slideCurrent === 2 || slideCurrent === 6 || i === 2 || i === 5) {
     imgs[2].classList.add("active");
     imgs[6].classList.add("active");
-    firstImg.innerHTML = `<img id="fistImg" src="/images/image-product-3.jpg" alt=""></img>`;
-    imgChange.innerHTML = `<img id="fistImg" src="/images/image-product-3.jpg" alt=""></img>`;
+    firstImg.innerHTML = `<img id="fistImg" src="images/image-product-3.jpg" alt=""></img>`;
+    imgChange.innerHTML = `<img id="fistImg" src="images/image-product-3.jpg" alt=""></img>`;
   } else if (slideCurrent === 3 || slideCurrent === 7 || i === 3 || i === 6) {
     imgs[3].classList.add("active");
     imgs[7].classList.add("active");
-    firstImg.innerHTML = `<img id="fistImg" src="/images/image-product-4.jpg" alt=""></img>`;
-    imgChange.innerHTML = `<img id="fistImg" src="/images/image-product-4.jpg" alt=""></img>`;
+    firstImg.innerHTML = `<img id="fistImg" src="images/image-product-4.jpg" alt=""></img>`;
+    imgChange.innerHTML = `<img id="fistImg" src="images/image-product-4.jpg" alt=""></img>`;
   }
 }
 
@@ -179,7 +179,7 @@ function addShop() {
     <h3>Cart</h3>
 
     <div class="achat">
-     <img src="/images/image-product-1-thumbnail.jpg" alt="Image de sneakers">
+     <img src="images/image-product-1-thumbnail.jpg" alt="Image de sneakers">
 
         <h4>Fall Limited Edition Sneakers 125.00 x ${egalNumber} <span class="shop-price">   
         ${calcAchat}$</span></h4>
